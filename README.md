@@ -3,10 +3,11 @@
 
 Bienvenido a la documentación del proyecto. Usa los enlaces a continuación para navegar:
 
-- [Guía de configuración](ssh.md)
+- [Configuración SSH](ssh.md)
 - [Documentación de Swagger](swagger.md)
 - [Documentación de Go](go.md)
 - [Documentación de Nginx](nginx.md)
+- [Configuración Nginx - React](config-nginx.md)
 
 ## Ejecutar una aplicación React en segundo plano
 
