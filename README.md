@@ -8,6 +8,7 @@ Bienvenido a la documentación del proyecto. Usa los enlaces a continuación par
 - [Documentación de Go](go.md)
 - [Documentación de Nginx](nginx.md)
 - [Configuración Nginx - React](config-nginx.md)
+- [PM2](pm2.md)
 
 ## Ejecutar una aplicación React en segundo plano
 
