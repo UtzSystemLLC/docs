@@ -134,3 +134,36 @@ Si Nginx falla al iniciar o recargar, verifica:
    ```bash
    sudo systemctl status nginx
    ```
+
+# Configuración WhatsApp NGINX
+```bash
+server {
+    listen 3005 ssl;
+    server_name mia.chanim.com.gt;
+
+    ssl_certificate /home/ubuntu/ssl/mia.chanim.com.gt.pem;
+    ssl_certificate_key /home/ubuntu/ssl/mia.chanim.com.gt.key;
+
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers HIGH:!aNULL:!MD5;
+    ssl_prefer_server_ciphers on;
+
+    # /webhook → proxy al backend Express
+    location /webhook {
+        proxy_pass http://127.0.0.1:3006/webhook;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    # / (raíz) → proxy al backend Express
+    location / {
+        proxy_pass http://127.0.0.1:3006/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+```
