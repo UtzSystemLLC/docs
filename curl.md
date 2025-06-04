@@ -12,7 +12,10 @@ curl -X POST https://main.chanim.com.gt/web/auth/login
 ```bash
 # Cambiar el verify_token y hacer la prueba antes del dominio y el certificado
 curl -i https://mia.chanim.com.gt:3005/
-curl -i "https://mia.chanim.com.gt:3005/webhook?hub.mode=subscribe&hub.verify_token=SHERLOCKHOLMES&hub.challenge=123456"
+curl -i "https://mia.chanim.com.gt:3005/webhook?hub.mode=subscribe&hub.verify_token=guatemala&hub.challenge=123456"
+
+# Funciona con la ip si esta abierto el puerto
+curl -i "http://54.157.165.241:3005/webhook?hub.mode=subscribe&hub.verify_token=guatemala&hub.challenge=123456"
 
 # web
 https://mia.chanim.com.gt:3005/
